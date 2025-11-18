@@ -59,6 +59,16 @@ export const projects: Project[] = [
     liveDemoLink: 'https://larrywind.vercel.app/',
   },
   {
+    id: 'digit-tally-landing-page',
+    title: 'Digit Tally Landing Page',
+    description: 'Accounting app',
+    fullDescription: 'The only accounting app you need',
+    languages: 'NextJS • TypeScript • TailwindCSS',
+    category: 'website',
+    tags: ['Accounting', 'Calculator', 'Landing page'],
+    liveDemoLink: 'https://digit-tally.io',
+  },
+  {
     id: 'digit-tally',
     title: 'Digit Tally',
     description:
@@ -129,7 +139,7 @@ export const projects: Project[] = [
     teamSize: '4 frontend developers',
     impact:
       'Improved team productivity by 25% through independent app deployment and custom NPM packages. Reduced initial load time by 40% through code splitting. Streamlined developer onboarding with CLI authentication tool.',
-    liveDemoLink: 'https://digit-tally.io',
+    liveDemoLink: 'https://app/digit-tally.io',
   },
   {
     id: 'gebu-works',
