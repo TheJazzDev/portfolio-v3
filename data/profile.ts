@@ -1,3 +1,5 @@
+import { projects } from "./projects";
+
 export const profile = {
   name: 'Taiwo Babarinde',
   title: 'Senior Frontend Engineer',
@@ -119,8 +121,8 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
 
   stats: {
     yearsOfExperience: '4+',
-    projectsCompleted: '15+',
+    projectsCompleted: `${projects.length}+`,
     npmDownloads: '1000+',
-    clients: '10+',
+    clients: '12+',
   },
 };

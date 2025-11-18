@@ -31,9 +31,10 @@ export const projects: Project[] = [
     description: 'Authentic flavors, delivered fresh',
     fullDescription:
       'Order authentic African and Caribbean meals delivered fresh to your doorstep. Experience the vibrant flavors of our heritage with quick, efficient delivery.',
-    languages: 'Next.js • TypeScript • Firebase • TailwindCSS • GSAP • Framer Motion',
+    languages:
+      'Next.js • TypeScript • Firebase • TailwindCSS • GSAP • Framer Motion',
     category: 'webapp',
-    tags: ['Food', 'Lifestyle', 'Culture', 'People'],
+    tags: ['Food', 'Lifestyle', 'Culture', 'People', 'Landing page'],
     features: [
       'Payment integration using Stripe',
       'User authentication and authorization',
@@ -46,9 +47,22 @@ export const projects: Project[] = [
     liveDemoLink: 'https://dev.foodjunkee.co.uk',
   },
   {
+    id: 'larrywind',
+    title: 'Larry Wind',
+    description: 'A Professional Musician',
+    fullDescription:
+      'Elite music instructor in Lagos. Specialize in Saxophone, Piano, Drums, Violin & Music Theory.',
+    languages: 'NextJS • TypeScript • TailwindCSS',
+    category: 'website',
+    tags: ['Music', 'Theory', 'Instruments', 'Teaching', 'Landing page'],
+    githubLink: 'https://github.com/TaiwoJazz/larry-wind',
+    liveDemoLink: 'https://larrywind.vercel.app/',
+  },
+  {
     id: 'digit-tally',
     title: 'Digit Tally',
-    description: 'Scalable micro-frontend accounting system serving 50+ business users',
+    description:
+      'Scalable micro-frontend accounting system serving 50+ business users',
     fullDescription:
       'A comprehensive enterprise-grade accounting platform built using Turbo Repo micro-frontend architecture. Led the frontend development and architecture, integrating 300+ API endpoints across multiple independent applications that work seamlessly together. Built custom React component library, utility functions, and CLI tools published on NPM for team efficiency.',
     architecture: 'Micro-Frontend (Turbo Repo)',
@@ -83,7 +97,8 @@ export const projects: Project[] = [
     npmPackages: [
       {
         name: '@candourorg/components',
-        description: 'Shared React component library used across all micro-apps',
+        description:
+          'Shared React component library used across all micro-apps',
         link: 'https://www.npmjs.com/package/@candourorg/components',
       },
       {
@@ -93,11 +108,13 @@ export const projects: Project[] = [
       },
       {
         name: '@candourorg/cli',
-        description: 'CLI tool for authenticating backend and frontend developers locally',
+        description:
+          'CLI tool for authenticating backend and frontend developers locally',
         link: 'https://www.npmjs.com/package/@candourorg/cli',
       },
     ],
-    languages: 'Next.js • TypeScript • TanStack Query • Redux • Turbo Repo • TailwindCSS',
+    languages:
+      'Next.js • TypeScript • TanStack Query • Redux • Turbo Repo • TailwindCSS',
     category: 'webapp',
     tags: [
       'Micro-Frontend',
@@ -115,6 +132,17 @@ export const projects: Project[] = [
     liveDemoLink: 'https://digit-tally.io',
   },
   {
+    id: 'gebu-works',
+    title: 'Gebu Works',
+    description: 'Fair Work Platform for African Talent',
+    fullDescription:
+      'Connect African developers and designers with global companies. Fair pay, fast payments, quality work.',
+    languages: 'NextJS • TypeScript • TailwindCSS',
+    category: 'website',
+    tags: ['Freelancing', 'Remote', 'Hybridg', 'Landing page'],
+    liveDemoLink: 'https://gebuworks.vercel.app/',
+  },
+  {
     id: 'mm-plumbing',
     title: 'MM Plumbing',
     description: 'Professional heating, plumbing, and renovation services',
@@ -129,7 +157,8 @@ export const projects: Project[] = [
   {
     id: 'vastfluid-dex',
     title: 'VastFluid DEX',
-    description: 'Next-generation decentralized exchange built on Arbitrum network',
+    description:
+      'Next-generation decentralized exchange built on Arbitrum network',
     fullDescription:
       'A sophisticated DeFi platform featuring concentrated liquidity pools and advanced trading capabilities. Collaborated with design team to create an intuitive user experience for complex blockchain interactions. Built responsive frontend handling real-time price updates and blockchain transaction states.',
     languages: 'Next.js • TypeScript • Web3.js • TailwindCSS • GSAP',
@@ -160,7 +189,8 @@ export const projects: Project[] = [
   {
     id: 'defttrader',
     title: 'Deft Trader',
-    description: 'Comprehensive forex trading platform with real-time market data',
+    description:
+      'Comprehensive forex trading platform with real-time market data',
     fullDescription:
       'A full-featured forex trading platform helping traders and investors achieve profitability. Built with authentication system, admin panel, and real-time data integration. Implemented secure Firebase backend with role-based access control.',
     languages: 'Next.js • TypeScript • Firebase • TailwindCSS • GSAP',

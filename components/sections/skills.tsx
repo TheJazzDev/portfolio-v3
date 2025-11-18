@@ -6,11 +6,11 @@ export function Skills() {
   return (
     <section id='skills' className='py-12 md:py-16 lg:py-20 px-6 lg:px-20'>
       <div className='max-w-7xl mx-auto'>
-        <div className='sticky-header bg-[#0a0a0a]/95 backdrop-blur-sm py-6 md:py-8 mb-6 md:mb-8'>
+        <div className='sticky-header bg-[#0a0a0a]/95 backdrop-blur-sm pb-4 mb-4'>
           <span className='text-primary-500 text-base md:text-lg font-semibold'>
             &gt; WHAT I USE
           </span>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-2 md:mt-4'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-2'>
             SKILLS & <span className='text-gradient'>TOOLS</span>
           </h2>
         </div>
