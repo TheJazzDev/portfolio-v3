@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section
       id='home'
-      className='min-h-[85vh] md:min-h-[90vh] flex items-center justify-center relative overflow-hidden px-6 lg:px-20 py-12 md:py-16'>
+      className='min-h-[97vh] md:min-h-[90vh] flex items-center justify-center relative overflow-hidden px-6 lg:px-20 py-12 md:py-16'>
       <div className='absolute inset-0'>
         <div className='absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl' />
         <div className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-500/10 rounded-full blur-3xl' />
@@ -34,10 +34,10 @@ export function Hero() {
             TypeScript. From micro-frontends to DeFi platforms.
           </p>
 
-          <div className='flex flex-wrap gap-3 md:gap-4'>
+          <div className='flex flex-col lg:flex-row gap-4'>
             <button
               onClick={scrollToProjects}
-              className="group px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 border-4 border-primary-500 bg-primary-500 text-white font-bold text-base md:text-lg hover:bg-transparent hover:text-primary-500 transition-all duration-300 flex items-center gap-2 btn-rounded"
+              className="group px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 border-4 border-primary-500 bg-primary-500 text-white font-bold text-base md:text-lg hover:bg-transparent hover:text-primary-500 transition-all duration-300 flex items-center justify-center gap-2 btn-rounded"
             >
               View Projects
               <ArrowRight
@@ -54,7 +54,7 @@ export function Hero() {
                   .getElementById('contact')
                   ?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 border-4 border-white font-bold text-base md:text-lg hover:bg-white hover:text-black transition-all duration-300 btn-rounded"
+              className="text-center px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 border border-white font-bold text-base md:text-lg hover:bg-white hover:text-black transition-all duration-300 btn-rounded"
             >
               Get in Touch
             </a>

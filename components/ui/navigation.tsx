@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -95,8 +96,8 @@ export function Navigation() {
         animate={{ y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 lg:hidden"
       >
-        <div className="flex justify-between items-center p-6 bg-black/80 backdrop-blur-lg border-b-2 border-white/10">
-          <span className="font-mono text-lg font-bold">TB</span>
+        <div className="flex justify-between items-center px-4 py-3 bg-black/80 backdrop-blur-lg border-b-2 border-white/10">
+          <Image src='/android-chrome-512x512.png' width={40} height={40} alt='logo' />
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="w-10 h-10 border-2 border-white flex items-center justify-center btn-rounded"
