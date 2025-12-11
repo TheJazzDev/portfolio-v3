@@ -26,6 +26,46 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: '67-humanitarian-foundation',
+    title: '67 Humanitarian Foundation',
+    description: 'Nigerian Army 67 Intake humanitarian initiative managing 3,600+ members',
+    fullDescription:
+      'First organized humanitarian initiative in Nigerian Army history, built for the 67 Intake to manage 3,600+ member records across 36 Nigerian states. A comprehensive full-stack platform featuring member management, donation tracking, news publishing, and memorial tributes. Includes sophisticated role-based access control (4 roles), complete audit logging, and state-of-the-art database architecture for honoring fallen heroes and supporting military families.',
+    languages:
+      'Next.js 14 • React 19 • TypeScript • Prisma ORM • PostgreSQL • TailwindCSS v4 • Shadcn/ui',
+    category: 'webapp',
+    tags: ['Humanitarian', 'Military', 'Non-Profit', 'Full-Stack', 'Enterprise', 'Database Management'],
+    features: [
+      'Member management system for 3,600+ records with 14 military ranks',
+      'Role-based access control (SUPERADMIN, ADMIN, MODERATOR, MEMBER)',
+      'Donation tracking with Stripe payment integration',
+      'News and announcements publishing system',
+      'Memorial tributes for fallen heroes',
+      'Complete audit logging for all actions',
+      'Advanced search and filtering across 36 states',
+      'Bulk CSV import for member data',
+      'Responsive dashboard with analytics',
+      'Email notifications via Resend',
+      'Cloudinary integration for media storage',
+    ],
+    architecture: 'Full-Stack (Next.js App Router, Prisma ORM, PostgreSQL)',
+    role: 'Full-Stack Developer',
+    impact:
+      'First-ever organized digital platform for Nigerian Army humanitarian efforts. Managing 3,600+ member records with complete audit trail. Supporting military families through streamlined donation and memorial systems.',
+    technicalHighlights: [
+      'Next.js 14 App Router with route groups for clean architecture',
+      'Prisma ORM with PostgreSQL for type-safe database operations',
+      'NextAuth.js for secure authentication and session management',
+      'Zod validation schemas for input sanitization',
+      'Complete audit logging system tracking all data modifications',
+      'Role-based access control with granular permissions',
+      'Optimized database queries with proper indexing',
+      'Shadcn/ui components built on Radix UI primitives',
+      'Tailwind CSS v4 for modern styling',
+    ],
+    liveDemoLink: 'https://67hf.org',
+  },
+  {
     id: 'foodjunkee',
     title: 'Food Junkee',
     description: 'Authentic flavors, delivered fresh',
@@ -74,7 +114,7 @@ export const projects: Project[] = [
     description:
       'Scalable micro-frontend accounting system serving 50+ business users',
     fullDescription:
-      'A comprehensive enterprise-grade accounting platform built using Turbo Repo micro-frontend architecture. Led the frontend development and architecture, integrating 300+ API endpoints across multiple independent applications that work seamlessly together. Built custom React component library, utility functions, and CLI tools published on NPM for team efficiency.',
+      'A comprehensive enterprise-grade accounting platform built using Turbo Repo micro-frontend architecture. Led the frontend development and architecture, integrating 300+ API endpoints across multiple independent applications that work seamlessly together. Built custom React component library, utility functions, and CLI tools published on NPM for team efficiency. Implemented advanced PDF generation system using Playwright for professional invoices, purchase orders, and receipts with optimized multi-page support.',
     architecture: 'Micro-Frontend (Turbo Repo)',
     microApps: [
       'Sales Management App - Invoice generation, customer management, sales tracking',
@@ -83,6 +123,7 @@ export const projects: Project[] = [
       'Accounting & Finance App - General ledger, financial reporting, reconciliation',
       'Payroll Management App - Employee salary processing, tax calculations, auto payslip generation',
       'Payslip App - Generate employee payslip',
+      'PDF Service - Server-side PDF generation for invoices, orders, and receipts',
       'Admin Dashboard - User management, permissions, system configuration, analytics',
     ],
     keyFeatures: [
@@ -93,6 +134,8 @@ export const projects: Project[] = [
       'Advanced reporting and analytics dashboard',
       'Multi-tenant architecture',
       'Role-based access control (RBAC)',
+      'Server-side PDF generation with Playwright for professional documents',
+      'Dynamic template system with Mustache for customizable invoices and receipts',
     ],
     technicalHighlights: [
       'Turbo Repo for micro-frontend orchestration',
@@ -103,6 +146,10 @@ export const projects: Project[] = [
       'CLI tool for developer authentication (@candourorg/cli)',
       'Optimized bundle splitting and lazy loading',
       'Integrated 300+ RESTful API endpoints',
+      'Playwright-based PDF generation with A4 page optimization',
+      'Advanced footer positioning algorithm for multi-page documents',
+      'Template rendering system with Mustache.js for dynamic content',
+      'Serverless-optimized Chromium configuration for PDF export',
     ],
     npmPackages: [
       {
@@ -325,7 +372,7 @@ export const projects: Project[] = [
     liveDemoLink: 'https://app-ldiev-crappo.netlify.app/',
   },
   {
-    id: 'vom-app',
+    id: 'vom-mobile-app',
     title: 'VOM Mobile Application',
     description: 'Cross-platform mobile application (In Development)',
     fullDescription:

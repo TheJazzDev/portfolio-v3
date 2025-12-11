@@ -48,6 +48,7 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
     ],
     tools: [
       'Git & GitHub',
+      'Prisma ORM',
       'Turbo Repo',
       'Redux & TanStack Query',
       'Web3.js',
