@@ -50,51 +50,35 @@ export function Skills() {
                         area: 'Frontend Architecture',
                         description:
                           'Micro-frontend systems, code splitting, performance optimization',
-                        level: 95,
                       },
                       {
                         area: 'React Ecosystem',
                         description:
                           'React, Next.js, TanStack Query, Redux, Context API',
-                        level: 98,
                       },
                       {
                         area: 'TypeScript',
                         description:
                           'Type-safe applications, complex type definitions, generics',
-                        level: 90,
                       },
                       {
                         area: 'Web3 & DeFi',
                         description:
                           'Smart contract integration, wallet connections, Web3.js',
-                        level: 80,
                       },
                       {
                         area: 'UI/UX & Design',
                         description:
                           'Responsive design, animations, accessibility, design generation',
-                        level: 92,
                       },
                     ].map((item) => (
                       <div key={item.area} className='space-y-1.5 md:space-y-2'>
-                        <div className='flex justify-between items-center'>
-                          <h4 className='font-bold text-sm md:text-base'>
-                            {item.area}
-                          </h4>
-                          <span className='text-xs md:text-sm text-electric-500'>
-                            {item.level}%
-                          </span>
-                        </div>
+                        <h4 className='font-bold text-sm md:text-base text-primary-500'>
+                          {item.area}
+                        </h4>
                         <p className='text-xs md:text-sm text-gray-400'>
                           {item.description}
                         </p>
-                        <div className='h-1.5 md:h-2 bg-white/10 overflow-hidden btn-rounded'>
-                          <div
-                            style={{ width: `${item.level}%` }}
-                            className='h-full bg-linear-to-r from-primary-500 via-electric-500 to-primary-400'
-                          />
-                        </div>
                       </div>
                     ))}
                   </div>

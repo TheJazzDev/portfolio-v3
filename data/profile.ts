@@ -64,6 +64,21 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
 
   experience: [
     {
+      company: 'Food Junkee',
+      role: 'Front-End Developer (Freelance)',
+      period: 'Nov 2025 – Present',
+      location: 'Remote',
+      description: 'Full-stack food delivery platform specializing in African and Caribbean cuisine',
+      highlights: [
+        'Built production-ready food delivery web application using Next.js 16, React 19, and TypeScript with Firebase backend serving real customers',
+        'Integrated Stripe payment processing with webhook handling and DPD Local UK shipping API for automated order fulfillment and thermal label printing',
+        'Developed comprehensive admin dashboard with role-based access control, order management, real-time analytics, and inventory tracking',
+        'Implemented 30+ RESTful API endpoints with authentication, activity logging, and automated cleanup jobs deployed on Vercel with cron scheduling',
+        'Designed complex checkout flow with cart persistence, delivery validation, and multi-service integration (Firebase, Resend email, QZ Tray printing)',
+      ],
+      skills: 'Next.js | React.js | TypeScript | Firebase | Stripe API | DPD API | Zustand | API Development',
+    },
+    {
       company: 'CANDOUR IT SERVICES',
       role: 'Lead Frontend Engineer',
       period: 'Jan 2024 – Present',

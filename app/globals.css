@@ -214,3 +214,41 @@ section {
     top: 0;
   }
 }
+
+/* Print Styles for Resume */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print-ready {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Prevent page breaks inside elements */
+  h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  ul, ol {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

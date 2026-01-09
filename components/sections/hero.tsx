@@ -1,7 +1,8 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileDown } from 'lucide-react';
 import { profile } from '@/data/profile';
+import Link from 'next/link';
 
 export function Hero() {
 
@@ -34,10 +35,10 @@ export function Hero() {
             TypeScript. From micro-frontends to DeFi platforms.
           </p>
 
-          <div className='flex flex-col lg:flex-row gap-4'>
+          <div className='flex flex-col sm:flex-row gap-3 sm:gap-4'>
             <button
               onClick={scrollToProjects}
-              className="group px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 border-4 border-primary-500 bg-primary-500 text-white font-bold text-base md:text-lg hover:bg-transparent hover:text-primary-500 transition-all duration-300 flex items-center justify-center gap-2 btn-rounded"
+              className="group px-6 lg:px-8 py-2 border-4 border-primary-500 bg-primary-500 text-white font-bold text-base md:text-lg hover:bg-transparent hover:text-primary-500 transition-all duration-300 flex items-center justify-center gap-2 btn-rounded"
             >
               View Projects
               <ArrowRight
@@ -45,6 +46,18 @@ export function Hero() {
                 size={20}
               />
             </button>
+
+            <Link
+              href='/resume'
+              target='_blank'
+              className="group text-center px-6 lg:px-8 py-2 border-2 border-primary-500 text-primary-500 font-bold text-base md:text-lg hover:bg-primary-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 btn-rounded"
+            >
+              <FileDown
+                className='group-hover:scale-110 transition-transform'
+                size={20}
+              />
+              Resume
+            </Link>
 
             <a
               href='#contact'
@@ -54,7 +67,7 @@ export function Hero() {
                   .getElementById('contact')
                   ?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="text-center px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 border border-white font-bold text-base md:text-lg hover:bg-white hover:text-black transition-all duration-300 btn-rounded"
+              className="text-center px-6 lg:px-8 py-2.5 border border-white font-bold text-base md:text-lg hover:bg-white hover:text-black transition-all duration-300 btn-rounded"
             >
               Get in Touch
             </a>
