@@ -8,4 +8,5 @@ export interface Testimonial {
   message: string;
   approved: boolean;
   createdAt: string;
+  order?: number;
 }

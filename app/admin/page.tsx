@@ -33,13 +33,17 @@ export default function AdminPage() {
 
   const checkAuthentication = async () => {
     try {
-      // Try to fetch stats to check if cookie is valid
-      const response = await fetch('/api/testimonials');
+      // Check authentication via proper auth endpoint
+      const response = await fetch('/api/admin/auth');
       if (response.ok) {
-        setIsAuthenticated(true);
+        const data = await response.json();
+        setIsAuthenticated(data.authenticated);
+      } else {
+        setIsAuthenticated(false);
       }
     } catch (error) {
       console.error('Auth check failed:', error);
+      setIsAuthenticated(false);
     } finally {
       setIsCheckingAuth(false);
     }

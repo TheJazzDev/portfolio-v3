@@ -1,5 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// GET /api/admin/auth - Check if user is authenticated
+export async function GET(request: NextRequest) {
+  const authCookie = request.cookies.get('admin_authenticated');
+  const adminPassword = process.env.ADMIN_PASSWORD;
+
+  if (authCookie?.value === adminPassword) {
+    return NextResponse.json({ authenticated: true });
+  }
+
+  return NextResponse.json({ authenticated: false }, { status: 401 });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { password } = await request.json();

@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       id='home'
-      className='min-h-[97vh] md:min-h-[90vh] flex items-center justify-center relative overflow-hidden px-6 lg:px-20 py-12 md:py-16'>
+      className='min-h-[97vh] md:min-h-[100vh] flex items-center justify-center relative overflow-hidden px-6 lg:px-20 py-12 md:py-16'>
       <div className='absolute inset-0'>
         <div className='absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl' />
         <div className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-500/10 rounded-full blur-3xl' />

@@ -19,13 +19,26 @@ async function writeTestimonials(testimonials: Testimonial[]): Promise<void> {
   await fs.writeFile(TESTIMONIALS_FILE, JSON.stringify(testimonials, null, 2), 'utf-8');
 }
 
-// GET /api/testimonials - Get all approved testimonials (most recent first)
+// GET /api/testimonials - Get all approved testimonials (custom order or most recent first)
 export async function GET() {
   try {
     const testimonials = await readTestimonials();
     const approved = testimonials.filter((t) => t.approved);
-    // Sort by createdAt date, newest first
-    approved.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+    // Sort by order field (if exists), then by createdAt (newest first)
+    approved.sort((a, b) => {
+      // If both have order, sort by order
+      if (a.order !== undefined && b.order !== undefined) {
+        return a.order - b.order;
+      }
+      // If only a has order, a comes first
+      if (a.order !== undefined) return -1;
+      // If only b has order, b comes first
+      if (b.order !== undefined) return 1;
+      // Otherwise sort by date (newest first)
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    });
+
     return NextResponse.json(approved);
   } catch (error) {
     console.error('Error reading testimonials:', error);
