@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects, type Project } from '@/data/projects';
 import { cn } from '@/lib/utils';
+import { trackProjectView } from '@/lib/hooks/useAnalytics';
 
 const categories = ['all', 'webapp', 'website', 'mobile'] as const;
 type Category = typeof categories[number];
@@ -12,17 +13,22 @@ export function Projects() {
   const [activeCategory, setActiveCategory] = useState<Category>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    trackProjectView(project.id, project.title);
+  };
+
   const filteredProjects = activeCategory === 'all'
     ? projects
     : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-12 md:py-16 lg:py-20 px-6 lg:px-20">
+    <section id="projects" className="py-16 md:py-20 lg:py-24 px-6 lg:px-20 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         <div className="sticky-header bg-[#0a0a0a]/95 backdrop-blur-sm pb-4 mb-4">
           <span className="text-primary-500 text-base md:text-lg font-semibold">&gt; MY WORK</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2">
-            FEATURED <span className="text-gradient">PROJECTS</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2">
+FEATURED <span className="text-primary-500">PROJECTS</span>
           </h2>
         </div>
 
@@ -48,7 +54,7 @@ export function Projects() {
             <ProjectCard
               key={project.id}
               project={project}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => handleProjectClick(project)}
             />
           ))}
         </div>
@@ -78,7 +84,7 @@ function ProjectCard({
     >
       <div className="p-4 md:p-5 space-y-3 md:space-y-3.5 flex-1 flex flex-col">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg md:text-xl font-bold group-hover:text-gradient transition-colors">
+          <h3 className="text-lg md:text-xl font-bold group-hover:text-primary-500 transition-colors">
             {project.title}
           </h3>
           <div className="flex gap-1.5 md:gap-2 shrink-0">
@@ -129,8 +135,6 @@ function ProjectCard({
           )}
         </div>
       </div>
-
-      <div className="h-1 bg-linear-to-r from-primary-500 via-primary-400 to-electric-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
     </div>
   );
 }
@@ -153,7 +157,7 @@ function ProjectModal({
       >
         <div className="sticky top-0 bg-linear-to-b from-black to-black/95 border-b-2 border-primary-500/20 p-6 md:p-8 flex justify-between items-start gap-4 z-10 backdrop-blur-xl">
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold text-gradient">{project.title}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white">{project.title}</h2>
             {project.role && (
               <p className="text-base md:text-xl text-primary-500 mt-3 font-semibold">{project.role}</p>
             )}

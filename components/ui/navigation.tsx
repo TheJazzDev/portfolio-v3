@@ -11,6 +11,8 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Evolution', href: '#evolution' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -20,30 +22,39 @@ export function Navigation() {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.slice(1));
-      const scrollPosition = window.scrollY + 100;
+    let ticking = false;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = navItems.map((item) => item.href.slice(1));
+          const scrollPosition = window.scrollY + 100;
+
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(section);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.getElementById(href.slice(1));
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Removed smooth scroll behavior to prevent janky scrolling
+      element.scrollIntoView({ behavior: 'auto' });
       setIsOpen(false);
     }
   };
@@ -126,7 +137,7 @@ export function Navigation() {
                   className={cn(
                     'text-4xl font-bold transition-colors duration-300',
                     activeSection === item.href.slice(1)
-                      ? 'text-gradient'
+                      ? 'text-primary-500'
                       : 'text-white hover:text-primary-500'
                   )}
                 >

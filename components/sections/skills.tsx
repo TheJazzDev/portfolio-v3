@@ -4,14 +4,14 @@ import { profile } from '@/data/profile';
 
 export function Skills() {
   return (
-    <section id='skills' className='py-12 md:py-16 lg:py-20 px-6 lg:px-20'>
+    <section id='skills' className='py-16 md:py-20 lg:py-24 px-6 lg:px-20 border-t border-white/10'>
       <div className='max-w-7xl mx-auto'>
         <div className='sticky-header bg-[#0a0a0a]/95 backdrop-blur-sm pb-4 mb-4'>
           <span className='text-primary-500 text-base md:text-lg font-semibold'>
             &gt; WHAT I USE
           </span>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mt-2'>
-            SKILLS & <span className='text-gradient'>TOOLS</span>
+          <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold mt-2'>
+            SKILLS & <span className='text-primary-500'>TOOLS</span>
           </h2>
         </div>
 
@@ -41,7 +41,7 @@ export function Skills() {
             <div className='relative flex-1'>
               <div className='border-4 border-white p-5 md:p-6 lg:p-7 brutalist-shadow h-full flex flex-col justify-between card-rounded'>
                 <div>
-                  <h3 className='text-xl md:text-2xl font-bold mb-4 md:mb-5 text-gradient'>
+                  <h3 className='text-xl md:text-2xl font-bold mb-4 md:mb-5 text-primary-500'>
                     Expertise
                   </h3>
                   <div className='space-y-4 md:space-y-5'>
@@ -87,7 +87,7 @@ export function Skills() {
                 <div className='mt-6 md:mt-7 pt-6 md:pt-7 border-t-2 border-white/20'>
                   <div className='grid grid-cols-2 gap-3 md:gap-4 text-center'>
                     <div>
-                      <div className='text-2xl md:text-3xl font-bold text-gradient'>
+                      <div className='text-2xl md:text-3xl font-bold text-primary-500'>
                         300+
                       </div>
                       <div className='text-xs text-gray-500 mt-1 uppercase tracking-wider'>
@@ -95,7 +95,7 @@ export function Skills() {
                       </div>
                     </div>
                     <div>
-                      <div className='text-2xl md:text-3xl font-bold text-gradient'>
+                      <div className='text-2xl md:text-3xl font-bold text-primary-500'>
                         7+
                       </div>
                       <div className='text-xs text-gray-500 mt-1 uppercase tracking-wider'>
@@ -134,7 +134,7 @@ export function Skills() {
                   <div className='text-3xl md:text-4xl mb-3 md:mb-4'>
                     {item.icon}
                   </div>
-                  <h3 className='text-lg md:text-xl font-bold mb-1.5 md:mb-2 group-hover:text-gradient transition-colors'>
+                  <h3 className='text-lg md:text-xl font-bold mb-1.5 md:mb-2 group-hover:text-primary-500 transition-colors'>
                     {item.title}
                   </h3>
                   <p className='text-xs md:text-sm text-gray-400'>

@@ -27,7 +27,7 @@ export function Hero() {
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-none tracking-tight">
             <span className="block">TAIWO</span>
-            <span className="block text-gradient">BABARINDE</span>
+            <span className="block text-primary-500">BABARINDE</span>
           </h1>
 
           <p className='text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl leading-relaxed'>
@@ -78,7 +78,7 @@ export function Hero() {
               <div
                 key={key}
                 className='border-l-4 border-primary-500 pl-3 md:pl-4 hover:border-primary-400 transition-colors'>
-                <div className='text-2xl md:text-3xl lg:text-4xl font-bold text-gradient'>
+                <div className='text-2xl md:text-3xl lg:text-4xl font-bold text-primary-500'>
                   {value}
                 </div>
                 <div className='text-xs md:text-sm text-gray-400 uppercase mt-1 md:mt-2'>

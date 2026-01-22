@@ -4,12 +4,12 @@ import { profile } from '@/data/profile';
 
 export function About() {
   return (
-    <section id="about" className="flex items-center py-12 md:py-16 lg:py-20 px-6 lg:px-20">
+    <section id="about" className="flex items-center py-16 md:py-20 lg:py-24 px-6 lg:px-20 border-t border-white/10">
       <div className="max-w-7xl mx-auto w-full">
         <div className="sticky-header bg-[#0a0a0a]/95 backdrop-blur-sm pb-4 mb-4">
           <span className="text-primary-500 text-base md:text-lg font-semibold">&gt; WHO I AM</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2">
-            ABOUT <span className="text-gradient">ME</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2">
+ABOUT <span className="text-primary-500">ME</span>
           </h2>
         </div>
 

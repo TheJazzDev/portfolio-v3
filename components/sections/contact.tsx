@@ -16,13 +16,32 @@ export function Contact() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    const formData = new FormData(formRef.current);
+    const contactData = {
+      name: formData.get('from_name') as string,
+      email: formData.get('from_email') as string,
+      subject: formData.get('subject') as string,
+      message: formData.get('message') as string,
+    };
+
     try {
+      // Save to database
+      await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactData),
+      });
+
+      // Send email via EmailJS
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
         formRef.current,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
       );
+
       setSubmitStatus('success');
       formRef.current.reset();
     } catch (error) {
@@ -35,12 +54,12 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-16 lg:py-20 px-6 lg:px-20">
+    <section id="contact" className="py-16 md:py-20 lg:py-24 px-6 lg:px-20 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         <div className="sticky-header bg-[#0a0a0a]/95 backdrop-blur-sm pb-4 mb-4">
           <span className="text-primary-500 text-base md:text-lg font-semibold">&gt; GET IN TOUCH</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2">
-            LET&apos;S <span className="text-gradient">TALK</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2">
+            LET&apos;S <span className="text-primary-500">TALK</span>
           </h2>
         </div>
 
@@ -80,7 +99,7 @@ export function Contact() {
                     href={item.href}
                     target={item.href.startsWith('http') ? '_blank' : undefined}
                     rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="text-base md:text-lg font-bold hover:text-gradient transition-colors"
+                    className="text-base md:text-lg font-bold hover:text-primary-500 transition-colors"
                   >
                     {item.value}
                   </a>

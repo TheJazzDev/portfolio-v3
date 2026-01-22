@@ -4,12 +4,12 @@ import { profile } from '@/data/profile';
 
 export function Experience() {
   return (
-    <section id="experience" className="py-12 md:py-16 lg:py-20 px-6 lg:px-20">
+    <section id="experience" className="py-16 md:py-20 lg:py-24 px-6 lg:px-20 border-t border-white/10">
       <div className="max-w-7xl mx-auto w-full">
         <div className="sticky-header bg-[#0a0a0a]/95 backdrop-blur-sm pb-4 mb-4">
           <span className="text-primary-500 text-base md:text-lg font-semibold">&gt; MY JOURNEY</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2">
-            PROFESSIONAL <span className="text-gradient">EXPERIENCE</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2">
+PROFESSIONAL <span className="text-primary-500">EXPERIENCE</span>
           </h2>
         </div>
 
@@ -21,7 +21,7 @@ export function Experience() {
             >
               <div className="flex flex-col gap-2 md:gap-2.5 mb-3 md:mb-4">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1.5 md:gap-2">
-                  <h3 className="text-xl md:text-2xl font-bold text-gradient">{exp.role}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-white">{exp.role}</h3>
                   <span className="text-sm md:text-base text-gray-400 md:text-right">{exp.period}</span>
                 </div>
                 <p className="text-primary-500 text-base md:text-lg font-semibold">{exp.company}</p>
