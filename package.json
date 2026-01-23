@@ -20,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@prisma/client": "^7.0.0",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^24.10.1",
@@ -40,6 +41,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "prisma": "^7.0.0"
   }
 }
