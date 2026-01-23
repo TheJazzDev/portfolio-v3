@@ -1,46 +1,41 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-import type { Analytics, PageView, ProjectView } from '@/data/analytics';
-
-const ANALYTICS_FILE = path.join(process.cwd(), 'data', 'analytics.json');
-
-async function readAnalytics(): Promise<Analytics> {
-  try {
-    const data = await fs.readFile(ANALYTICS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    return { pageViews: [], projectViews: [] };
-  }
-}
-
-async function writeAnalytics(analytics: Analytics): Promise<void> {
-  await fs.writeFile(ANALYTICS_FILE, JSON.stringify(analytics, null, 2), 'utf-8');
-}
+import { prisma } from '@/lib/prisma';
 
 // GET /api/analytics - Get analytics data
 export async function GET() {
   try {
-    const analytics = await readAnalytics();
-
     // Calculate statistics
     const now = new Date();
     const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
     const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 
-    // Filter recent data
-    const recentPageViews = analytics.pageViews.filter(
-      (pv) => new Date(pv.timestamp) >= thirtyDaysAgo
-    );
-    const recentProjectViews = analytics.projectViews.filter(
-      (pv) => new Date(pv.timestamp) >= thirtyDaysAgo
-    );
+    // Get counts
+    const totalPageViews = await prisma.pageView.count();
+    const totalProjectViews = await prisma.projectView.count();
+    const last30DaysPageViews = await prisma.pageView.count({
+      where: {
+        timestamp: {
+          gte: thirtyDaysAgo,
+        },
+      },
+    });
+    const last7DaysPageViews = await prisma.pageView.count({
+      where: {
+        timestamp: {
+          gte: sevenDaysAgo,
+        },
+      },
+    });
 
-    const lastWeekPageViews = analytics.pageViews.filter(
-      (pv) => new Date(pv.timestamp) >= sevenDaysAgo
-    );
+    // Get popular projects (last 30 days)
+    const recentProjectViews = await prisma.projectView.findMany({
+      where: {
+        timestamp: {
+          gte: thirtyDaysAgo,
+        },
+      },
+    });
 
-    // Count project views
     const projectViewCounts: Record<string, { title: string; count: number }> = {};
     recentProjectViews.forEach((pv) => {
       if (!projectViewCounts[pv.projectId]) {
@@ -57,7 +52,15 @@ export async function GET() {
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
 
-    // Page view counts
+    // Get top pages (last 30 days)
+    const recentPageViews = await prisma.pageView.findMany({
+      where: {
+        timestamp: {
+          gte: thirtyDaysAgo,
+        },
+      },
+    });
+
     const pageViewCounts: Record<string, number> = {};
     recentPageViews.forEach((pv) => {
       pageViewCounts[pv.path] = (pageViewCounts[pv.path] || 0) + 1;
@@ -69,10 +72,10 @@ export async function GET() {
       .slice(0, 10);
 
     return NextResponse.json({
-      totalPageViews: analytics.pageViews.length,
-      totalProjectViews: analytics.projectViews.length,
-      last30DaysPageViews: recentPageViews.length,
-      last7DaysPageViews: lastWeekPageViews.length,
+      totalPageViews,
+      totalProjectViews,
+      last30DaysPageViews,
+      last7DaysPageViews,
       popularProjects,
       topPages,
     });
@@ -88,25 +91,21 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { type, path, projectId, projectTitle } = body;
 
-    const analytics = await readAnalytics();
-
     if (type === 'page') {
-      const pageView: PageView = {
-        path: path || '/',
-        timestamp: new Date().toISOString(),
-        userAgent: request.headers.get('user-agent') || undefined,
-      };
-      analytics.pageViews.push(pageView);
+      await prisma.pageView.create({
+        data: {
+          path: path || '/',
+          userAgent: request.headers.get('user-agent'),
+        },
+      });
     } else if (type === 'project') {
-      const projectView: ProjectView = {
-        projectId,
-        projectTitle,
-        timestamp: new Date().toISOString(),
-      };
-      analytics.projectViews.push(projectView);
+      await prisma.projectView.create({
+        data: {
+          projectId,
+          projectTitle,
+        },
+      });
     }
-
-    await writeAnalytics(analytics);
 
     return NextResponse.json({ message: 'View tracked successfully' });
   } catch (error) {

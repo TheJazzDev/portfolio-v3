@@ -1,22 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-import type { Testimonial } from '@/data/testimonials';
-
-const TESTIMONIALS_FILE = path.join(process.cwd(), 'data', 'testimonials.json');
-
-async function readTestimonials(): Promise<Testimonial[]> {
-  try {
-    const data = await fs.readFile(TESTIMONIALS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    return [];
-  }
-}
-
-async function writeTestimonials(testimonials: Testimonial[]): Promise<void> {
-  await fs.writeFile(TESTIMONIALS_FILE, JSON.stringify(testimonials, null, 2), 'utf-8');
-}
+import { prisma } from '@/lib/prisma';
 
 function verifyAuth(request: NextRequest): boolean {
   const authCookie = request.cookies.get('admin_authenticated');
@@ -42,22 +25,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'orderedIds must be an array' }, { status: 400 });
     }
 
-    // Read all testimonials
-    const testimonials = await readTestimonials();
-
-    // Create a map of id to testimonial for quick lookup
-    const testimonialMap = new Map(testimonials.map(t => [t.id, t]));
-
-    // Update order field for approved testimonials based on orderedIds
-    orderedIds.forEach((id, index) => {
-      const testimonial = testimonialMap.get(id);
-      if (testimonial && testimonial.approved) {
-        testimonial.order = index;
-      }
-    });
-
-    // Write back to file
-    await writeTestimonials(testimonials);
+    // Update order field for each testimonial
+    await Promise.all(
+      orderedIds.map((id, index) =>
+        prisma.testimonial.updateMany({
+          where: {
+            id,
+            approved: true,
+          },
+          data: {
+            order: index,
+          },
+        })
+      )
+    );
 
     return NextResponse.json({ message: 'Order updated successfully' });
   } catch (error) {

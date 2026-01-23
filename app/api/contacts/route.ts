@@ -1,29 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-import type { Contact } from '@/data/contacts';
-
-const CONTACTS_FILE = path.join(process.cwd(), 'data', 'contacts.json');
-
-async function readContacts(): Promise<Contact[]> {
-  try {
-    const data = await fs.readFile(CONTACTS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    return [];
-  }
-}
-
-async function writeContacts(contacts: Contact[]): Promise<void> {
-  await fs.writeFile(CONTACTS_FILE, JSON.stringify(contacts, null, 2), 'utf-8');
-}
+import { prisma } from '@/lib/prisma';
 
 // GET /api/contacts - Get all contact submissions
 export async function GET() {
   try {
-    const contacts = await readContacts();
-    // Return in reverse chronological order (newest first)
-    return NextResponse.json(contacts.reverse());
+    const contacts = await prisma.contact.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+    return NextResponse.json(contacts);
   } catch (error) {
     console.error('Error reading contacts:', error);
     return NextResponse.json({ error: 'Failed to fetch contacts' }, { status: 500 });
@@ -43,19 +29,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const newContact: Contact = {
-      id: `contact-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      name: name.trim(),
-      email: email.trim(),
-      subject: subject.trim(),
-      message: message.trim(),
-      read: false,
-      createdAt: new Date().toISOString(),
-    };
-
-    const contacts = await readContacts();
-    contacts.push(newContact);
-    await writeContacts(contacts);
+    const newContact = await prisma.contact.create({
+      data: {
+        name: name.trim(),
+        email: email.trim(),
+        subject: subject.trim(),
+        message: message.trim(),
+        read: false,
+      },
+    });
 
     return NextResponse.json(
       { message: 'Contact saved successfully', id: newContact.id },
@@ -82,16 +64,11 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const contacts = await readContacts();
-    const index = contacts.findIndex((c) => c.id === id);
-
-    if (index === -1) {
-      return NextResponse.json({ error: 'Contact not found' }, { status: 404 });
-    }
-
     if (action === 'read') {
-      contacts[index].read = true;
-      await writeContacts(contacts);
+      await prisma.contact.update({
+        where: { id },
+        data: { read: true },
+      });
       return NextResponse.json({ message: 'Contact marked as read' });
     }
 
@@ -114,14 +91,10 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const contacts = await readContacts();
-    const filtered = contacts.filter((c) => c.id !== id);
+    await prisma.contact.delete({
+      where: { id },
+    });
 
-    if (filtered.length === contacts.length) {
-      return NextResponse.json({ error: 'Contact not found' }, { status: 404 });
-    }
-
-    await writeContacts(filtered);
     return NextResponse.json({ message: 'Contact deleted successfully' });
   } catch (error) {
     console.error('Error deleting contact:', error);

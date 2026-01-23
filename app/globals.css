@@ -178,6 +178,31 @@ body {
   background-color: rgba(10, 10, 10, 0.85);
 }
 
+/* Custom scrollbar styling for project modal */
+.project-modal {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-500) rgba(255, 255, 255, 0.1);
+}
+
+.project-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.project-modal::-webkit-scrollbar-thumb {
+  background: var(--color-primary-500);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.project-modal::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-600);
+}
+
 /* Remove all sharp corners globally */
 * {
   box-sizing: border-box;

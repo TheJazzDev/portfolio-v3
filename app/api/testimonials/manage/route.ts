@@ -1,22 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-import type { Testimonial } from '@/data/testimonials';
-
-const TESTIMONIALS_FILE = path.join(process.cwd(), 'data', 'testimonials.json');
-
-async function readTestimonials(): Promise<Testimonial[]> {
-  try {
-    const data = await fs.readFile(TESTIMONIALS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    return [];
-  }
-}
-
-async function writeTestimonials(testimonials: Testimonial[]): Promise<void> {
-  await fs.writeFile(TESTIMONIALS_FILE, JSON.stringify(testimonials, null, 2), 'utf-8');
-}
+import { prisma } from '@/lib/prisma';
 
 function verifyPassword(password: string): boolean {
   const adminPassword = process.env.ADMIN_PASSWORD;
@@ -55,19 +38,15 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Missing testimonial ID' }, { status: 400 });
     }
 
-    // Read testimonials
-    const testimonials = await readTestimonials();
-    const index = testimonials.findIndex((t) => t.id === id);
+    // Approve testimonial
+    const testimonial = await prisma.testimonial.update({
+      where: { id },
+      data: { approved: true },
+    });
 
-    if (index === -1) {
+    if (!testimonial) {
       return NextResponse.json({ error: 'Testimonial not found' }, { status: 404 });
     }
-
-    // Approve testimonial
-    testimonials[index].approved = true;
-
-    // Write back to file
-    await writeTestimonials(testimonials);
 
     return NextResponse.json({ message: 'Testimonial approved successfully' });
   } catch (error) {
@@ -95,16 +74,10 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Missing testimonial ID' }, { status: 400 });
     }
 
-    // Read testimonials
-    const testimonials = await readTestimonials();
-    const filtered = testimonials.filter((t) => t.id !== id);
-
-    if (filtered.length === testimonials.length) {
-      return NextResponse.json({ error: 'Testimonial not found' }, { status: 404 });
-    }
-
-    // Write back to file
-    await writeTestimonials(filtered);
+    // Delete testimonial
+    await prisma.testimonial.delete({
+      where: { id },
+    });
 
     return NextResponse.json({ message: 'Testimonial deleted successfully' });
   } catch (error) {

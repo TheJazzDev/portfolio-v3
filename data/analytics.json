@@ -24,7 +24,43 @@
       "path": "/",
       "timestamp": "2026-01-22T18:11:03.607Z",
       "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+    },
+    {
+      "path": "/",
+      "timestamp": "2026-01-23T08:02:10.162Z",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+    },
+    {
+      "path": "/",
+      "timestamp": "2026-01-23T08:02:34.663Z",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
     }
   ],
-  "projectViews": []
+  "projectViews": [
+    {
+      "projectId": "foodjunkee",
+      "projectTitle": "Food Junkee",
+      "timestamp": "2026-01-23T08:02:25.946Z"
+    },
+    {
+      "projectId": "foodjunkee",
+      "projectTitle": "Food Junkee",
+      "timestamp": "2026-01-23T08:02:36.651Z"
+    },
+    {
+      "projectId": "vom-mobile-app",
+      "projectTitle": "VOM Church Management Platform",
+      "timestamp": "2026-01-23T08:02:49.432Z"
+    },
+    {
+      "projectId": "vom-mobile-app",
+      "projectTitle": "VOM Church Management Platform",
+      "timestamp": "2026-01-23T08:03:20.246Z"
+    },
+    {
+      "projectId": "digit-tally",
+      "projectTitle": "Digit Tally App",
+      "timestamp": "2026-01-23T08:03:42.920Z"
+    }
+  ]
 }

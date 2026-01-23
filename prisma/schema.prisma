@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  company   String
+  email     String?
+  project   String
+  message   String   @db.Text
+  approved  Boolean  @default(false)
+  order     Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([approved])
+  @@index([order])
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read])
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  userAgent String?  @db.Text
+  timestamp DateTime @default(now())
+
+  @@index([path])
+  @@index([timestamp])
+}
+
+model ProjectView {
+  id           String   @id @default(cuid())
+  projectId    String
+  projectTitle String
+  timestamp    DateTime @default(now())
+
+  @@index([projectId])
+  @@index([timestamp])
+}

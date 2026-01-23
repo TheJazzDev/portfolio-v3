@@ -9,3 +9,4 @@ build/
 coverage/
 .turbo/
 .history
+/lib/generated/prisma
