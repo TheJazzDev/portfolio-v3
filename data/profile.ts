@@ -1,4 +1,4 @@
-import { projects } from "./projects";
+import { projects } from './projects';
 
 export const profile = {
   name: 'Taiwo Babarinde',
@@ -23,29 +23,10 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
       'JavaScript (ES6+)',
       'HTML5 & CSS3',
     ],
-    mobile: [
-      'React Native',
-      'Flutter',
-      'Expo',
-    ],
-    styling: [
-      'TailwindCSS',
-      'Styled Components',
-      'SCSS/SASS',
-      'CSS-in-JS',
-    ],
-    backend: [
-      'Node.js',
-      'NestJS',
-      'Firebase',
-      'Django',
-      'REST APIs',
-    ],
-    animation: [
-      'GSAP',
-      'Framer Motion',
-      'Three.js',
-    ],
+    mobile: ['React Native', 'Flutter', 'Expo'],
+    styling: ['TailwindCSS', 'Styled Components', 'SCSS/SASS', 'CSS-in-JS'],
+    backend: ['Node.js', 'NestJS', 'Firebase', 'Django', 'REST APIs'],
+    animation: ['GSAP', 'Framer Motion', 'Three.js'],
     tools: [
       'Git & GitHub',
       'Prisma ORM',
@@ -68,7 +49,8 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
       role: 'Front-End Developer (Freelance)',
       period: 'Nov 2025 – Present',
       location: 'Remote',
-      description: 'Full-stack food delivery platform specializing in African and Caribbean cuisine',
+      description:
+        'Full-stack food delivery platform specializing in African and Caribbean cuisine',
       highlights: [
         'Built production-ready food delivery web application using Next.js 16, React 19, and TypeScript with Firebase backend serving real customers',
         'Integrated Stripe payment processing with webhook handling and DPD Local UK shipping API for automated order fulfillment and thermal label printing',
@@ -76,14 +58,16 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
         'Implemented 30+ RESTful API endpoints with authentication, activity logging, and automated cleanup jobs deployed on Vercel with cron scheduling',
         'Designed complex checkout flow with cart persistence, delivery validation, and multi-service integration (Firebase, Resend email, QZ Tray printing)',
       ],
-      skills: 'Next.js | React.js | TypeScript | Firebase | Stripe API | DPD API | Zustand | API Development',
+      skills:
+        'Next.js | React.js | TypeScript | Firebase | Stripe API | DPD API | Zustand | API Development',
     },
     {
       company: 'CANDOUR IT SERVICES',
       role: 'Lead Frontend Engineer',
       period: 'Jan 2024 – Present',
       location: 'Remote',
-      description: 'IT solutions company providing innovative tech solutions to businesses worldwide',
+      description:
+        'IT solutions company providing innovative tech solutions to businesses worldwide',
       highlights: [
         'Leading a high-performing team of 4 frontend developers building scalable accounting software using micro-frontend architecture and 300+ integrated API endpoints',
         'Architected and implemented micro-frontend architecture enabling independent team workflows and seamless integration across services',
@@ -91,14 +75,16 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
         'Mentored 3 interns from onboarding to junior developer positions, establishing coding standards and best practices',
         'Optimized applications for performance, identifying bottlenecks and reducing load times through profiling and code analysis',
       ],
-      skills: 'React.js | Next.js | TypeScript | Micro Frontend Architecture | API Integration | Team Leadership',
+      skills:
+        'React.js | Next.js | TypeScript | Micro Frontend Architecture | API Integration | Team Leadership',
     },
     {
       company: 'VastFluid Finance',
       role: 'Front-End Developer',
       period: 'Mar 2023 – May 2023',
       location: 'Remote',
-      description: 'Next-generation decentralized exchange (DEX) built on the Arbitrum network (Web3)',
+      description:
+        'Next-generation decentralized exchange (DEX) built on the Arbitrum network (Web3)',
       highlights: [
         'Collaborated with design team to create intuitive, user-friendly frontend for blockchain DApp',
         'Developed fully responsive landing page with mobile-first approach; reduced bounce rates by 15%',
@@ -111,7 +97,8 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
       role: 'Front-End Developer (Freelance)',
       period: 'Jan 2023 – Feb 2023',
       location: 'Remote',
-      description: 'Forex brand helping traders and investors achieve profitability in forex markets',
+      description:
+        'Forex brand helping traders and investors achieve profitability in forex markets',
       highlights: [
         'Designed and developed fully responsive multi-page Forex website with seamless UX',
         'Implemented authentication system, admin panel, and database using Firebase',
@@ -124,14 +111,16 @@ From micro-frontend architectures serving 50+ business users to DeFi platforms h
       role: 'Strategy and Quality Assurance Manager',
       period: 'Oct 2021 – Dec 2022',
       location: 'Remote',
-      description: 'Blockchain- and AI-powered telehealth platform providing global cross-boundary healthcare',
+      description:
+        'Blockchain- and AI-powered telehealth platform providing global cross-boundary healthcare',
       highlights: [
-        'Led cross-functional team of 2 designers and 6 developers to successfully launch 5 products',
+        'Led cross-functional team of 2 designers and 6 developers to successfully lunch 5 products',
         'Evaluated 20,000+ lines of code across multiple projects, ensuring adherence to industry best practices',
         'Made codebase 100% developer-friendly through comprehensive code reviews and documentation',
         'Provided mentorship and technical guidance to junior developers, improving team efficiency',
       ],
-      skills: 'Flutter | Code Review | Performance Optimization | Team Leadership | Product Development',
+      skills:
+        'Flutter | Code Review | Performance Optimization | Team Leadership | Product Development',
     },
   ],
 
