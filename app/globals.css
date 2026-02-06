@@ -235,6 +235,16 @@ section {
 
 /* Print Styles for Resume */
 @media print {
+  @page {
+    margin: 0.4in 0.3in;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background-color: white;
     color: black;
@@ -247,6 +257,31 @@ section {
   .print-ready {
     box-shadow: none !important;
     border-radius: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-ready * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume-page {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .resume-section-title {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+
+  strong,
+  b {
+    font-weight: 700 !important;
   }
 
   .page-break {

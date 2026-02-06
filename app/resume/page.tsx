@@ -8,7 +8,7 @@ export default function ResumePage() {
   };
 
   return (
-    <section className='min-h-screen px-4 sm:px-6 lg:px-8 py-6 sm:py-8'>
+    <section className='resume-page min-h-screen px-4 sm:px-6 lg:px-8 py-6 sm:py-8 print:py-2'>
       <div
         id='resume-header'
         className='flex items-center justify-end mb-6 sm:mb-8 print:hidden'>
@@ -21,7 +21,7 @@ export default function ResumePage() {
       </div>
 
       {/* Resume Container */}
-      <div className='max-w-5xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8 md:p-10 print:shadow-none print:rounded-none print-ready'>
+      <div className='max-w-5xl mx-auto bg-white rounded-lg shadow-xl px-6 sm:px-8 md:px-10 pt-6 print:shadow-none print:rounded-none print-ready'>
         {/* HEADER */}
         <div className='text-center mb-4 pb-4 border-b-2 border-gray-800'>
           <div className='text-2xl font-bold text-gray-800 mb-1'>
@@ -59,7 +59,7 @@ export default function ResumePage() {
 
         {/* PROFESSIONAL SUMMARY */}
         <div className='mb-6'>
-          <h2 className='text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
+          <h2 className='resume-section-title text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
             Professional Summary
           </h2>
           <p className='text-xs text-gray-700 mb-4 print:mb-2 leading-relaxed text-justify'>
@@ -95,7 +95,7 @@ export default function ResumePage() {
 
         {/* CORE COMPETENCIES */}
         <div className='mb-6'>
-          <h2 className='text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
+          <h2 className='resume-section-title text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
             Core Competencies
           </h2>
           <div className='space-y-2 print:space-y-1 text-xs text-gray-700'>
@@ -123,7 +123,7 @@ export default function ResumePage() {
 
         {/* PROFESSIONAL EXPERIENCE */}
         <div className='mb-6'>
-          <h2 className='text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
+          <h2 className='resume-section-title text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
             Professional Experience
           </h2>
 
@@ -190,7 +190,6 @@ export default function ResumePage() {
                 scalable accounting software using micro-frontend architecture
                 and 300+ integrated API endpoints
               </li>
-              <div className='page-break'></div>
               <li>
                 Architected and implemented micro-frontend architecture enabling
                 independent team workflows and seamless integration across
@@ -309,11 +308,9 @@ export default function ResumePage() {
           </div>
         </div>
 
-        <div className='page-break'></div>
-
         {/* EDUCATION */}
         <div className='mb-6'>
-          <h2 className='text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
+          <h2 className='resume-section-title text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
             Education & Certifications
           </h2>
           <div className='space-y-2 text-xs text-gray-700'>
@@ -338,7 +335,7 @@ export default function ResumePage() {
 
         {/* KEY ACHIEVEMENTS */}
         <div className='mb-6'>
-          <h2 className='text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
+          <h2 className='resume-section-title text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
             Key Achievements
           </h2>
           <ul className='text-xs text-gray-700 space-y-2 ml-4'>
@@ -367,7 +364,7 @@ export default function ResumePage() {
 
         {/* ADDITIONAL INFO */}
         <div>
-          <h2 className='text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
+          <h2 className='resume-section-title text-sm font-bold text-white bg-gray-800 px-2 py-2 mb-2 uppercase tracking-wide'>
             Additional Information
           </h2>
           <div className='space-y-1 text-xs text-gray-700'>
