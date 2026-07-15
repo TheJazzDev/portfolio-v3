@@ -26,6 +26,130 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'settrium',
+    title: 'Settrium ERP',
+    description:
+      'Multi-tenant enterprise resource planning platform with database-per-tenant isolation',
+    fullDescription:
+      'Settrium is a multi-tenant enterprise resource planning (ERP) platform organized into business suites, with Procure-to-Pay (budget planning through goods receipt) as the first suite. Built as a modular monolith — one deployable application with strict internal boundaries between suites, so any suite can be extracted into its own service later. The architecture is engineered for the demands of ERP-class systems: each tenant organization gets its own dedicated Postgres database (tenant isolation as a connection boundary, not a query filter), computed financial values are never persisted but always derived at read time from underlying transactions, and login is always bound to a tenant subdomain rather than a central portal.',
+    languages:
+      'Next.js • React (RSC) • NestJS • TypeScript • Prisma ORM • PostgreSQL (Neon) • TanStack Query • Zod • Cloudflare R2 • Redis • BullMQ • Turborepo',
+    category: 'webapp',
+    tags: [
+      'ERP',
+      'Enterprise',
+      'Multi-Tenant',
+      'Full-Stack',
+      'Architecture',
+      'Modular Monolith',
+      'Fintech',
+    ],
+    architecture:
+      'Modular Monolith (Turborepo) — Next.js frontend + NestJS backend, database-per-tenant with a shared control-plane DB',
+    keyFeatures: [
+      'Database-per-tenant isolation — one Postgres DB per organization plus a shared control-plane DB for identity and tenant routing',
+      'Computed financial values (committed, consumed, remaining, spent, balance) are never stored, always derived at read time',
+      'Modular monolith with strict suite boundaries enforced by ESLint import rules',
+      'Tenant-subdomain authentication — sessions bound to one organization from creation, no central login portal',
+      'Procure-to-Pay suite: budget planning, procurement, vendors, contracts, and goods receiving',
+      'Per-tenant object storage via Cloudflare R2 (one bucket per tenant)',
+      'Background job processing with BullMQ and Upstash Redis',
+    ],
+    technicalHighlights: [
+      'Next.js App Router with React Server Components for the frontend',
+      'NestJS (TypeScript) backend with Prisma ORM for type-safe data access',
+      'PostgreSQL on Neon with per-tenant logical databases and a control-plane database',
+      'Separate Prisma schemas and migrations for control-plane and tenant databases',
+      'Turborepo monorepo (bun workspaces) orchestrating apps, backend, and shared packages',
+      'TanStack Query with react-hook-form and Zod for validated client data flows',
+      'Cloudflare R2 for per-tenant file storage',
+      'Upstash Redis + BullMQ for queued background work; Resend for transactional email',
+      '25+ locked architectural decisions documented before implementation (multi-tenancy, RBAC, transactions, observability, testing)',
+    ],
+    role: 'Lead Architect & Full-Stack Developer',
+    impact:
+      'Architecting an ERP-grade platform where early decisions carry multi-year cost — tenant isolation, financial value modeling, and suite boundaries are designed up front so the foundation scales from the first customer onward.',
+    status: 'In Active Development',
+  },
+  {
+    id: 'asiko-foods',
+    title: 'Asiko Foods',
+    description:
+      'Micro-frontend food commerce platform with retail storefront, B2B wholesale, and admin apps',
+    fullDescription:
+      'Asiko Foods is a micro-frontend food commerce platform built as a Turborepo monorepo, composed of independent Next.js applications that share a common design system and utilities. The platform spans a customer-facing retail storefront, a B2B wholesale trade app with its own authentication and ordering flows, and an admin panel for operations. Shared React primitives, design tokens, and framework-agnostic helpers are published as internal workspace packages, keeping the apps consistent while allowing each to be developed and deployed independently.',
+    languages:
+      'Next.js 16 • React 19 • TypeScript • Zustand • React Hook Form • Zod • TailwindCSS v4 • Turborepo • Bun',
+    category: 'webapp',
+    tags: [
+      'Micro-Frontend',
+      'E-commerce',
+      'Food',
+      'B2B',
+      'Full-Stack',
+      'Architecture',
+      'Monorepo',
+    ],
+    architecture: 'Micro-Frontend (Turborepo, bun workspaces)',
+    microApps: [
+      'Retail Storefront — customer-facing food commerce storefront',
+      'Wholesale (B2B) App — trade app with dedicated authentication, dashboard, catalog, and ordering',
+      'Admin Panel — operations and management dashboard (planned)',
+    ],
+    keyFeatures: [
+      'Independent Next.js apps sharing a common design system and utilities',
+      'Shared React primitives via internal @asiko/ui workspace package',
+      'Centralized design tokens and shared tsconfig/eslint via @asiko/config',
+      'Framework-agnostic helper library via @asiko/utils',
+      'Separate customer (retail) and B2B (wholesale) experiences with distinct flows',
+      'Client state management with Zustand across apps',
+      'Type-safe forms with React Hook Form and Zod validation',
+    ],
+    technicalHighlights: [
+      'Turborepo (bun workspaces) orchestrating multiple independent Next.js apps',
+      'Next.js 16 App Router with React 19',
+      'Shared workspace packages (@asiko/ui, @asiko/config, @asiko/utils)',
+      'Tailwind CSS v4 with centralized design tokens',
+      'Zustand for client-side state management',
+      'React Hook Form with Zod schema validation',
+      'Independent per-app dev servers and deployment boundaries',
+    ],
+    role: 'Full-Stack Developer - Architecture & Implementation',
+    status: 'In Active Development',
+  },
+  {
+    id: 'olamide-sax-v2',
+    title: 'Olamide Sax Website (v2)',
+    description:
+      'Cinematic, framework-free website for an Afro-Fusion artist with a signature Breath Line interaction',
+    fullDescription:
+      'A cinematic rebuild of the website for Olamide Sax (Olamide Phillips Olaniyan) — an Afro-Fusion artist, multi-instrumentalist, and creative facilitator based in the UK, and winner of Best Instrumentalist of the Year at the Eko Heritage Awards 2026. Built with HTML5, CSS3, and vanilla JavaScript ES modules powered by GSAP — no framework and no build step, fully static and deployable to any static host. The creative direction, "The Breath Between Notes," pairs restrained editorial luxury with a signature Breath Line interaction. Motion is treated as progressive enhancement: with JavaScript off or reduced-motion enabled, all content remains fully visible and accessible.',
+    languages: 'HTML5 • CSS3 • Vanilla JavaScript (ES Modules) • GSAP',
+    category: 'website',
+    tags: ['Music', 'Artist Website', 'Cinematic', 'Animation', 'GSAP', 'Static Site'],
+    architecture: 'Static site — no framework, no build step (8 flat pages, ES module JS)',
+    features: [
+      'Eight-page editorial site (home, about, artistic practice, media, gallery, press, timeline, contact)',
+      'Signature "Breath Line" interaction reflecting the "Breath Between Notes" concept',
+      'GSAP-powered cinematic scroll and reveal animations',
+      'Accessibility-first: full content visibility with JS off or reduced-motion on',
+      'Ambient hero and craft video loops that degrade to posters under reduced motion',
+      'Real photography gallery, press, and performance content driven from a data module',
+      'Self-hosted fonts and vendored dependencies for a fully static deploy',
+    ],
+    technicalHighlights: [
+      'Framework-free architecture — vanilla JS ES modules, no build step',
+      'GSAP with plugins for cinematic motion and smooth scrolling',
+      'Modular CSS layers (reset, tokens, typography, layout, components, animations, responsive)',
+      'HTML partials (nav, footer) composed across flat pages',
+      'Progressive enhancement: split-text keeps real text in the accessibility tree',
+      'Content managed via a single data module (photos, press, performances)',
+      'Self-hosted woff2 fonts and vendored GSAP for zero external runtime dependencies',
+    ],
+    role: 'Frontend Developer',
+    status: 'In Active Development',
+  },
+  {
     id: '67-humanitarian-foundation',
     title: '67 Humanitarian Foundation',
     description: 'Nigerian Army 67 Intake humanitarian initiative managing 3,600+ members',
