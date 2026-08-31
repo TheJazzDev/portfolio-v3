@@ -148,7 +148,7 @@ export const projects: Project[] = [
     ],
     role: 'Frontend Developer',
     status: 'In Active Development',
-    liveDemoLink: 'https://olamidesaks.co.uk',
+    liveDemoLink: 'https://olamidesax.co.uk',
   },
   {
     id: '67-humanitarian-foundation',
@@ -349,7 +349,7 @@ export const projects: Project[] = [
       'Mobile-first development following Tailwind CSS v4 best practices',
     ],
     githubLink: 'https://github.com/TheJazzDev/olamide-sax',
-    liveDemoLink: 'https://v2-olamidesaks.vercel.app',
+    liveDemoLink: 'https://v1.olamidesax.co.uk',
   },
   {
     id: 'larrywind',
