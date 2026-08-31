@@ -148,6 +148,7 @@ export const projects: Project[] = [
     ],
     role: 'Frontend Developer',
     status: 'In Active Development',
+    liveDemoLink: 'https://olamidesaks.co.uk',
   },
   {
     id: '67-humanitarian-foundation',
@@ -249,7 +250,6 @@ export const projects: Project[] = [
     role: 'Full-Stack Developer (Contract)',
     impact:
       'Built production-ready food delivery platform serving 40+ workplace locations daily. Implemented complete e-commerce workflow from browsing to payment and delivery. Integrated DPD shipping with automated thermal label printing. Created comprehensive admin system with activity logging and analytics for operational efficiency.',
-    githubLink: 'https://github.com/C8nd0ur/food-junkee',
     liveDemoLink: 'https://foodjunkee.co.uk',
   },
   {
@@ -349,6 +349,7 @@ export const projects: Project[] = [
       'Mobile-first development following Tailwind CSS v4 best practices',
     ],
     githubLink: 'https://github.com/TheJazzDev/olamide-sax',
+    liveDemoLink: 'https://v2-olamidesaks.vercel.app',
   },
   {
     id: 'larrywind',
